@@ -100,7 +100,7 @@ END_FOR
  FOR k FROM 1 TO v STEP 1  DO
     sum=0
     if ( htab.get(tab[i])=2) THEN 
-    sum+=tab[i]
+    sum+=tab[i]*2
  END_FOR
 
 END
