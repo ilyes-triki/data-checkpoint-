@@ -1,0 +1,111 @@
+ALGORITHM 
+//first method 
+VAR
+ n,m,sum,summ :INTEGER
+ array_Ta : ARRAY_OF INTEGER [n];
+ array_Tb : ARRAY_OF INTEGER [m];
+BEGIN
+REPEAT
+ write ("enter n length of Ta");
+ read(n);
+ write ("enter m length of Tb");
+ read(m);
+UNTIL (n>0 and m>0);
+REPEAT
+    write ("write Ta integers");
+    read (Ta[i]);
+    write ("write Tb integers");
+    read (Tb[j]);
+UNTIL ((length(Ta[i])=n) and (length(Tb[j])=m);
+FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO m-1 STEP 1  DO
+    sum:=0;
+        WHILE (Ta[i]<>Tb[j]) DO
+            sum=sum + Ta[i];
+        END_WHILE
+        write(sum)
+    END_FOR
+END_FOR
+FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO m-1 STEP 1  DO
+    summ:=0;
+        WHILE (Ta[i]==Tb[j]) DO
+            summ=summ + (Ta[i] *2);
+        END_WHILE
+        write(summ)
+    END_FOR
+END_FOR
+END
+//second method
+VAR 
+ n,m,sum,summ :INTEGER;
+ array_Ta : ARRAY_OF INTEGER [n];
+ array_Tb : ARRAY_OF INTEGER [m];
+ array_tab : ARRAY_OF INTEGER[v];
+ htab:HASH_TABLE<INTEGER,INTEGER>;
+BEGIN
+REPEAT
+ write ("enter n length of Ta");
+ read(n);
+ write ("enter m length of Tb");
+ read(m);
+UNTIL (n>0 and m>0);
+REPEAT
+    write ("write Ta integers");
+    read (Ta[i]);
+    write ("write Tb integers");
+    read (Tb[j]);
+UNTIL ((length(Ta[i])=n) and (length(Tb[j])=m);
+ 
+//  1
+ FOR i FROM 0 TO n-1 STEP 1  DO
+ count:=1
+
+ htab.insert (Ta[i],count)
+END_FOR
+FOR j FROM 0 TO m-1 STEP 1  DO
+    IF (htab.lookup(Tb[j])==True) THEN
+       htab.insert(Tb[j],count+1)
+    ELSE
+    htab.insert(Tb[j],count)
+    
+    END_IF
+END_FOR
+ 
+ 
+ tab: htab.getkeys[]
+ FOR k FROM 1 TO v STEP 1  DO
+    sum=0
+    if ( htab.get(tab[i])=1) THEN 
+    sum+=tab[i]
+ END_FOR
+
+// 2 
+ FOR i FROM 0 TO n-1 STEP 1  DO
+ count:=1
+ 
+ htab.insert (Ta[i],count)
+END_FOR
+FOR j FROM 0 TO m-1 STEP 1  DO
+    IF (htab.lookup(Tb[j])==True) THEN
+       htab.insert(Tb[j],count+1)
+       
+    ELSE
+    htab.insert(Tb[j],count)
+    END_IF
+END_FOR
+ 
+ 
+ tab: htab.getkeys[]
+ FOR k FROM 1 TO v STEP 1  DO
+    sum=0
+    if ( htab.get(tab[i])=2) THEN 
+    sum+=tab[i]
+ END_FOR
+
+END
+
+
+
+
+
